@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.andrefrsousa.superbottomsheet.CornerRadiusFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/super_bottom_sheet"
+    android:background="#ccc"
+    app:superBottomSheet_cornerRadius="50dp"
+    app:superBottomSheet_expandedHeight="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BottomSheetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="添加待办事件"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editText"
+            android:hint="做 点 什 么 吧！"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edit_text_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="68dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/editText" />
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toBottomOf="@+id/view2">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fadeScrollbars="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:checkable="true"
+                        android:id="@+id/one"
+                        android:tag="0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="充裕"
+                        app:chipSurfaceColor="#89FB04"
+                        app:textEndPadding="10dp"
+                        app:textStartPadding="10dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:checkable="true"
+                        android:id="@+id/two"
+                        android:tag="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="一般"
+                        app:chipSurfaceColor="#79B631"
+                        app:textEndPadding="10dp"
+                        app:textStartPadding="10dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:checkable="true"
+                        android:id="@+id/three"
+                        android:tag="2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="正常"
+                        app:chipSurfaceColor="#03A9F4"
+                        app:textEndPadding="10dp"
+                        app:textStartPadding="10dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:checkable="true"
+                        android:id="@+id/four"
+                        android:tag="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="较急"
+                        app:chipSurfaceColor="#E6B00F"
+                        app:textEndPadding="10dp"
+                        app:textStartPadding="10dp" />
+
+
+                    <com.google.android.material.chip.Chip
+                        android:checkable="true"
+                        android:id="@+id/five"
+                        android:tag="4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="紧急"
+                        app:chipSurfaceColor="#FA9706"
+                        app:textEndPadding="10dp"
+                        app:textStartPadding="10dp" />
+
+
+                    <com.google.android.material.chip.Chip
+                        android:checkable="true"
+                        android:id="@+id/six"
+                        android:tag="5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="刻不容缓"
+                        app:chipSurfaceColor="#FD1403"
+                        app:textEndPadding="10dp"
+                        app:textStartPadding="10dp" />
+
+                </com.google.android.material.chip.ChipGroup>
+            </LinearLayout>
+
+
+        </HorizontalScrollView>
+
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="选择时间"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/view3"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+
+        <TextView
+            android:id="@+id/timePickerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/date_bg_color"
+            android:padding="5dp"
+            android:text="今 天  12 : 00"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/add_task_btn"
+            android:text="确   定"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timePickerView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.andrefrsousa.superbottomsheet.CornerRadiusFrameLayout>

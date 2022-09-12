@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HelperFragment">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:text="欢迎使用TodoList"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="119dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="56dp"
+        android:background="@drawable/add_task_btn"
+        android:text="点 我"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <com.example.todolist.TodoListView
+        android:id="@+id/todoListView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="10dp"
+        android:outlineProvider="bounds"
+        android:outlineSpotShadowColor="#CFCCCC"
+        app:backgroundColor="#FFFFFFFF"
+        app:color="#FF0303"
+        app:fontFamily="@font/my_font"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:text="体验TodoList"
+        app:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/firstHelper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="颜色代表事件缓急程度，红色为最高级！"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/todoListView2"
+        app:layout_constraintTop_toBottomOf="@+id/todoListView2" />
+
+    <TextView
+        android:id="@+id/secondHelper"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="待办事项完成后，点击圆圈，将会划掉此任务"
+        app:layout_constraintStart_toStartOf="@+id/firstHelper"
+        app:layout_constraintTop_toBottomOf="@+id/firstHelper" />
+
+    <TextView
+        android:id="@+id/thirdHelper"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:text="您当然也可以在圆圈后面添加ddl"
+        app:layout_constraintStart_toStartOf="@+id/secondHelper"
+        app:layout_constraintTop_toBottomOf="@+id/secondHelper" />
+
+    <TextView
+        android:id="@+id/fourHelper"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:text="点击右方小铃铛，可以提醒您及时完成任务哦"
+        app:layout_constraintStart_toStartOf="@+id/thirdHelper"
+        app:layout_constraintTop_toBottomOf="@+id/thirdHelper" />
+
+    <TextView
+        android:id="@+id/fiveHelper"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="长按任务条可以选择删除任务哦"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/fourHelper"
+        app:layout_constraintTop_toBottomOf="@+id/fourHelper" />
+
+    <TextView
+        android:id="@+id/sixHelper"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="再次点击此任务条即可取消"
+        app:layout_constraintStart_toStartOf="@+id/fiveHelper"
+        app:layout_constraintTop_toBottomOf="@+id/fiveHelper" />
+
+    <TextView
+        android:id="@+id/sevenHelper"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="40dp"
+        android:text="点击试试上方的任务条呢!"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/sixHelper"
+        app:layout_constraintTop_toBottomOf="@+id/sixHelper" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

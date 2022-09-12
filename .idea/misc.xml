@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/android/app/src/main/res/drawable/add_task_btn.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/btn_color.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/date_bg_color.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/edit_text_bg.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/progress_bg.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/font/font.xml" value="0.2835897435897436" />
+        <entry key="..\:/android/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.264" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_detail.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_helper.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_home.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_info.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_time_select.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_welcome.xml" value="0.24427083333333333" />
+        <entry key="..\:/android/app/src/main/res/layout/info_item_layout.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/item_layout.xml" value="0.6" />
+        <entry key="..\:/android/app/src/main/res/menu/bottom_menu.xml" value="0.2578125" />
+        <entry key="..\:/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.155" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
