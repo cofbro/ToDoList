@@ -23,5 +23,8 @@ data class Info(
     val day: String,
     val month: String,
     val hour: String,
-    val minute: String
+    val minute: String,
+    var leftNum: Int,
+    var rightNum: Int,
+    val millisecond: Int
 )

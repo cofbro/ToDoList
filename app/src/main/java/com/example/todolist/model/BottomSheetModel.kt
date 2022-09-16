@@ -2,6 +2,7 @@ package com.example.todolist.model
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -33,6 +34,14 @@ class BottomSheetModel(application: Application) : AndroidViewModel(application)
             return SimpleDateFormat("yyyyMMddhhmmss").format(Date(milliseconds!!))
         }
         return ""
+    }
+
+    fun getMilliseconds(): Int {
+        if (milliseconds != null) {
+            Log.d("chy","time:${System.currentTimeMillis() - milliseconds!!}")
+            return -(System.currentTimeMillis() - milliseconds!!).toInt()
+        }
+        return 0
     }
 
     fun getTimeStr(): String {

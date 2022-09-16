@@ -23,6 +23,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
     var hour = ""
     var minute = ""
     var month = ""
+    var millisecond = 0
     var num = MutableLiveData(0)
     private val repository = Repository(application)
     val modelList = MutableLiveData<List<Info>>(emptyList())
@@ -64,7 +65,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
     fun insertModel(todoStr: String, color: String, time: String) {
         num.postValue(num.value!! + 1)
         viewModelScope.launch(Dispatchers.IO) {
-            val model = Info(0, todoStr, color, day, month, hour, minute)
+            val model = Info(0, todoStr, color, day, month, hour, minute, 0,0,millisecond)
             repository.insertModel(model)
         }
     }

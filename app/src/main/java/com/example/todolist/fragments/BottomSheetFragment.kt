@@ -57,6 +57,7 @@ class BottomSheetFragment : SuperBottomSheetFragment() {
                     homeModel.hour = hour
                     homeModel.minute = minute
                     homeModel.month = month
+                    homeModel.millisecond = model.getMilliseconds()
                     binding.timePickerView.text = "$month 月 $day 日   $hour : $minute"
                 }
 
@@ -107,7 +108,6 @@ class BottomSheetFragment : SuperBottomSheetFragment() {
             findNavController().navigateUp()
         }
     }
-
 
 
 

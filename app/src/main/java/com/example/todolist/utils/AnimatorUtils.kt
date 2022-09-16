@@ -21,12 +21,26 @@ fun hideTheBottomNavigationView(bottomNavigationView: BottomNavigationView) {
     }.start()
 }
 
-fun shakeDenoteDeleting(context: Context, view: View) {
+fun shakeDenoteDeleting(view: View) {
 
     ObjectAnimator.ofFloat(view, "translationX",0f,-20f,0f,20f,0f).apply {
         duration = 200
         repeatMode = ObjectAnimator.REVERSE
         repeatCount = 2
+        interpolator = LinearInterpolator()
+    }.start()
+}
+
+fun swipeDenoteDeleting(view: View) {
+    ObjectAnimator.ofFloat(view, "translationX",0f,-120f).apply {
+        duration = 150
+        interpolator = LinearInterpolator()
+    }.start()
+}
+
+fun swipeDenoteNormal(view: View) {
+    ObjectAnimator.ofFloat(view, "translationX",0f).apply {
+        duration = 150
         interpolator = LinearInterpolator()
     }.start()
 }

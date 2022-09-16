@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="长按任务条可以选择删除任务哦"
+        android:text="左滑任务条可以选择删除任务哦"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/fourHelper"
         app:layout_constraintTop_toBottomOf="@+id/fourHelper" />
@@ -116,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="再次点击此任务条即可取消"
+        android:text="右滑此任务条即可取消"
         app:layout_constraintStart_toStartOf="@+id/fiveHelper"
         app:layout_constraintTop_toBottomOf="@+id/fiveHelper" />
 

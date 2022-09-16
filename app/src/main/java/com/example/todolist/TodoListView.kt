@@ -15,28 +15,31 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.animation.LinearInterpolator
-import android.widget.Toast
 import androidx.core.app.NotificationCompat
+import com.example.todolist.databinding.ItemLayoutBinding
+import com.example.todolist.db.Info
 import com.example.todolist.utils.VibrateHelp
-import com.example.todolist.utils.shakeDenoteDeleting
+import com.example.todolist.utils.setAlarmToNotification
+import com.example.todolist.utils.swipeDenoteDeleting
+import com.example.todolist.utils.swipeDenoteNormal
 import tyrantgit.explosionfield.ExplosionField
-import java.util.*
 import kotlin.math.abs
 
 class TodoListView : View {
 
-    private var timeLock = true
-    private lateinit var timer: Timer
+    lateinit var info: Info
+    private var millisecond = 0
+    private lateinit var binding: ItemLayoutBinding
+    private var isSwiping = false
     private var preEventX = 0f
     private var preEventY = 0f
     private var laterEventX = 0f
     private var laterEventY = 0f
     private var isStarted = false
     private var ifTrash = false
-    private var isLongEventStatus = false
     private lateinit var mContext: Context
-    private var rightNum = 0
-    private var leftNum = 0
+    var rightNum = 0
+    var leftNum = 0
     private lateinit var leftImageRect: Rect
     private lateinit var rightImageRect: Rect
     private var timeY = 0f
@@ -158,30 +161,62 @@ class TodoListView : View {
         }
     }
 
+    fun getMillisecond(millisecond: Int) {
+        this.millisecond = millisecond
+    }
+
     private fun initLeftImage() {
         leftImage = typedArray.getDrawable(R.styleable.TodoListView_left_image)
         leftBitmap = BitmapFactory.decodeResource(resources, R.drawable.checked_empty)
+
+    }
+
+    fun remainTheStatusAndImage(text: String) {
+        leftBitmap = if (leftNum % 2 != 0) {
+            isDeleting = true
+            textPaint.color = Color.parseColor("#e1e0e4")
+            timePaint.color = Color.parseColor("#e1e0e4")
+            val bounds = Rect()
+            textPaint.getTextBounds(text, 0, text.length, bounds)
+            startDeleteAnimator(bounds, 1)
+            BitmapFactory.decodeResource(resources, R.drawable.checked)
+        } else {
+            isDeleting = false
+            textPaint.color = context.getColor(R.color.black)
+            timePaint.color = context.getColor(android.R.color.holo_blue_light)
+            BitmapFactory.decodeResource(resources, R.drawable.checked_empty)
+        }
+
+        rightBitmap = if (rightNum % 2 != 0) {
+            BitmapFactory.decodeResource(resources, R.drawable.bell_small_yellow)
+        } else {
+            BitmapFactory.decodeResource(resources, R.drawable.bell_small)
+        }
+        invalidate()
     }
 
     private fun changeTheStatusWithLeftImage() {
-        leftBitmap = if (leftNum % 2 != 0) {
+        leftNum++
+        leftBitmap = if (leftNum % 2 == 0) {
             cancelDeleteTheTask()
             BitmapFactory.decodeResource(resources, R.drawable.checked_empty)
         } else {
             deleteTheTask()
             BitmapFactory.decodeResource(resources, R.drawable.checked)
         }
-        leftNum++
         invalidate()
     }
 
     private fun initRightImage() {
         rightImage = typedArray.getDrawable(R.styleable.TodoListView_right_image)
         rightBitmap = BitmapFactory.decodeResource(resources, R.drawable.bell_small)
+
+
     }
 
     private fun changeTheStatusWithRightImage() {
-        rightBitmap = if (rightNum % 2 != 0) {
+        rightNum++
+        rightBitmap = if (rightNum % 2 == 0) {
             BitmapFactory.decodeResource(resources, R.drawable.bell_small)
         } else {
             val push = Intent(mContext, MainActivity::class.java)
@@ -203,18 +238,18 @@ class TodoListView : View {
                 .setContentText("将会在${timeStr}之前提醒您，请及时完成")
             notificationManager.notify(1, builder.build())
             VibrateHelp().vSimple(mContext, 200)
+
+
+            mText?.let { setAlarmToNotification(mContext, millisecond, true, it, timeStr) }
+
+
             BitmapFactory.decodeResource(resources, R.drawable.bell_small_yellow)
+
+
         }
-        rightNum++
         invalidate()
     }
 
-    private fun judgeIfTrashIcon() {
-        if (isLongEventStatus) {
-            rightBitmap = BitmapFactory.decodeResource(resources, R.drawable.trash)
-            invalidate()
-        }
-    }
 
     private fun deleteTheTask() {
         isDeleting = true
@@ -222,7 +257,7 @@ class TodoListView : View {
         timePaint.color = Color.parseColor("#e1e0e4")
         val bounds = Rect()
         textPaint.getTextBounds(mText, 0, mText!!.length, bounds)
-        startDeleteAnimator(bounds)
+        startDeleteAnimator(bounds, 400)
     }
 
     private fun cancelDeleteTheTask() {
@@ -232,10 +267,10 @@ class TodoListView : View {
     }
 
     @SuppressLint("Recycle")
-    private fun startDeleteAnimator(bounds: Rect) {
+    private fun startDeleteAnimator(bounds: Rect, mDuration: Int) {
         ValueAnimator.ofFloat(240f, 240f + bounds.right + 5f).apply {
             interpolator = LinearInterpolator()
-            duration = 400
+            duration = mDuration.toLong()
             addUpdateListener {
                 startLineLen = it.animatedValue as Float
                 invalidate()
@@ -317,6 +352,22 @@ class TodoListView : View {
         invalidate()
     }
 
+    fun getCurrentInfo(info: Info) {
+        this.info = info
+    }
+
+    fun getBinding(binding: ItemLayoutBinding) {
+        this.binding = binding
+        binding.imageView.setOnClickListener {
+            it.visibility = INVISIBLE
+            binding.view.visibility = INVISIBLE
+            ExplosionField(mContext).explode(this@TodoListView)
+            ifTrash = false
+            updateUI?.let { it("") }
+
+        }
+    }
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -324,59 +375,45 @@ class TodoListView : View {
             MotionEvent.ACTION_DOWN -> {
                 preEventX = event.x
                 preEventY = event.y
-                if (isLongEventStatus && !(rightImageRect.contains(
-                        (event.x).toInt(),
-                        (event.y).toInt()
-                    ))
-                ) {
-                    rightNum--
-                    ifTrash = false
-                    changeTheStatusWithRightImage()
-                }
+
                 //归零数据
-                timeLock = true
                 isStarted = false
-                isLongEventStatus = false
             }
             MotionEvent.ACTION_UP -> {
-                timer?.cancel()
                 if (leftImageRect.contains((event.x).toInt(), (event.y).toInt())) {
                     changeTheStatusWithLeftImage()
+
                 } else if (rightImageRect.contains((event.x).toInt(), (event.y).toInt())) {
-                    if (ifTrash) {
-                        ExplosionField(mContext).explode(this@TodoListView)
-                        ifTrash = false
-                        updateUI?.let { it("") }
-                    } else {
-                        changeTheStatusWithRightImage()
-                    }
+                    changeTheStatusWithRightImage()
                 }
             }
 
             MotionEvent.ACTION_MOVE -> {
-
                 laterEventX = event.x
                 laterEventY = event.y
-                if (timeLock) {
-                    timeLock = false
-                    timer = Timer()
-                    timer.schedule(object : TimerTask() {
-                        override fun run() {
-                            isLongEventStatus = true
-                        }
-                    }, 1000)
-                }
 
-                Toast.makeText(mContext, "$preEventX,$preEventY  $laterEventX,$laterEventY", Toast.LENGTH_SHORT).show()
-                if (isLongEventStatus) {
-                    Toast.makeText(mContext, "coming", Toast.LENGTH_SHORT).show()
-                    if (abs((preEventX - laterEventX)) <= 20 && abs((preEventY - laterEventY)) <= 20) {
+                if (preEventX != laterEventX && preEventY != laterEventY) {
+                    if (preEventX - laterEventX > 20 && preEventY - laterEventY < 30) {
+                        if (!isSwiping) {
+                            if (!isStarted) {
+                                isStarted = true
+                                isSwiping = true
+                                swipeDenoteDeleting(this@TodoListView)
+                                swipeDenoteDeleting(binding.view)
+                                swipeDenoteDeleting(binding.imageView)
+                                VibrateHelp().vSimple(mContext, 100)
+                            }
+                        }
+                    }
+
+
+                    if (laterEventX - preEventX > 20 && laterEventY - preEventY < 30) {
                         if (!isStarted) {
                             isStarted = true
-                            ifTrash = true
-                            shakeDenoteDeleting(mContext, this@TodoListView)
-                            VibrateHelp().vSimple(mContext, 100)
-                            judgeIfTrashIcon()
+                            isSwiping = false
+                            swipeDenoteNormal(this@TodoListView)
+                            swipeDenoteNormal(binding.view)
+                            swipeDenoteNormal(binding.imageView)
                         }
                     }
                 }
