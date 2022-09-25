@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.request.RequestOptions
 import com.example.todolist.R
 import com.example.todolist.TodoListView
 import com.example.todolist.adapter.ModelAdapter
@@ -25,18 +28,28 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentHomeBinding
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding.model = model
+        binding.lifecycleOwner = this
         model.shouldShowNavigationView.postValue(true)
         homeModel.setBinding(binding)
 
+
+        model.lcUri.observe(viewLifecycleOwner) {
+            Glide.with(requireActivity())
+                .load(it)
+                .placeholder(requireActivity().getDrawable(R.drawable.photo))
+                .apply(RequestOptions.bitmapTransform(CircleCrop()))
+                .into(binding.homeAvatar)
+        }
+
+
         homeModel.getAllModel()
-
-
 
 
         recyclerView =

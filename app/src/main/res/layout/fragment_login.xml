@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="login"
+            type="com.example.todolist.fragments.LoginFragment" />
+        <variable
+            name="phoneText"
+            type="com.example.todolist.PhoneEditText" />
+
+        <variable
+            name="clickEvent"
+            type="com.example.todolist.events.ClickEvents" />
+
+        <variable
+            name="model"
+            type="com.example.todolist.model.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".fragments.LoginFragment">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="42dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/clear" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="56dp"
+            android:text="欢迎登陆ToDoList"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            setPhoneEditTextVisibility="@{model.verifyMethod}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="+86"
+            android:textColor="#252424"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            setPhoneEditTextVisibility="@{model.verifyMethod}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            app:srcCompat="@drawable/arrow"
+            app:tint="#959491" />
+
+
+        <com.example.todolist.PhoneEditText
+            android:id="@+id/phoneEditText"
+            setPhoneEditTextVisibility="@{model.verifyMethod}"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:textColor="@color/black"
+            android:background="@drawable/no_border_shape"
+            android:hint="请输入手机号"
+            android:textColorHint="#767676"
+            android:inputType="phone"
+            android:maxLength="13"
+            android:letterSpacing="0.1"
+            android:textCursorDrawable="@drawable/cursor_color_shape"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/clear_text_button"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <ImageView
+            android:id="@+id/clear_text_button"
+            setPhoneEditTextVisibility="@{model.verifyMethod}"
+            setImageVisibility="@{phoneText.phoneNumber}"
+            android:layout_width="15dp"
+            android:layout_height="9dp"
+            android:layout_marginEnd="40dp"
+            android:onClick="@{(view) -> clickEvent.clear(view, phoneText)}"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView3"
+            app:layout_constraintVertical_bias="0.555"
+            app:srcCompat="@drawable/clear"
+            app:tint="#959491" />
+
+        <View
+            android:id="@+id/view"
+            setPhoneEditTextVisibility="@{model.verifyMethod}"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ccc"
+            app:layout_constraintEnd_toEndOf="@+id/clear_text_button"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
+
+        <View
+            setVisibility="@{model.verifyMethod}"
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ccc"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/passwordEditText"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            changePasswordShow="@{model.isPassword()}"
+            setVisibility="@{model.verifyMethod}"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/no_border_shape"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:letterSpacing="0.1"
+            android:textColor="@color/black"
+            android:textColorHint="#767676"
+            android:textCursorDrawable="@drawable/cursor_color_shape"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/userNameView" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBox"
+            shouldShowAnimation="@{model.shouldShowAnimation}"
+            android:layout_width="328dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="50dp"
+            android:buttonTint="#8FE827"
+            android:gravity="top"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:onClick="@{(view) -> clickEvent.changeCheckedStatus(view, model)}"
+            android:padding="0dp"
+            android:textColor="#737373"
+            android:text="我已阅读并同意《ToDoList用户协议》《隐私政策》 ，并授权使用该ToDoList账号信息（如昵称、头像）进行统一管理"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView4"-->
+<!--            shouldShowAnimation="@{model.shouldShowAnimation}"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="32dp"-->
+<!--            android:text="我已阅读并同意《美团用户协议》《隐私政策》 ，并授权美团使用该美团账号信息（如昵称、头像、收货地址）进行统一管理"-->
+<!--            android:textColor="#737373"-->
+<!--            android:textSize="12sp"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/clear_text_button"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/textView3"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/checkBox" />-->
+
+        <Button
+            android:id="@+id/button"
+            changeTitle="@{model.verifyMethod}"
+            setEnabled="@{phoneText.phoneNumber}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_selector"
+            android:onClick="@{(view) -> clickEvent.showAnimation(view, model, phoneText, login.binding)}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/checkBox"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/checkBox"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            setVisibility="@{model.verifyMethod}"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:onClick="@{(view) -> clickEvent.changeEye(view, model)}"
+            app:layout_constraintBottom_toBottomOf="@+id/passwordEditText"
+            app:layout_constraintEnd_toEndOf="@+id/userNameView"
+            app:layout_constraintTop_toTopOf="@+id/passwordEditText"
+            app:srcCompat="@drawable/eyes_close"
+            app:tint="#959491" />
+
+        <TextView
+            android:onClick="@{(view) -> clickEvent.chengVerifyMethod(view, model, login.binding)}"
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="密码登录"
+            android:textSize="12sp"
+            android:textColor="#232323"
+            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+        <EditText
+            android:id="@+id/userNameView"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/no_border_shape"
+            android:hint="请输入用户名"
+            android:textColor="@color/black"
+            android:textColorHint="#767676"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/phoneEditText" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#dddddd"
+            app:layout_constraintEnd_toEndOf="@+id/userNameView"
+            app:layout_constraintStart_toStartOf="@+id/userNameView"
+            app:layout_constraintTop_toBottomOf="@+id/userNameView" />
+
+        <TextView
+            android:onClick="@{(view) -> clickEvent.turnToRegisterPage(view)}"
+            android:id="@+id/registerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#232323"
+            android:text="注册"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/button"
+            app:layout_constraintTop_toTopOf="@+id/textView5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

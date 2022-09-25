@@ -4,30 +4,51 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/android/app/src/main/res/drawable/add_task_btn.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/arrow.xml" value="0.226" />
         <entry key="..\:/android/app/src/main/res/drawable/btn_color.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/btn_disable.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/drawable/btn_normal.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/drawable/btn_selector.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/drawable/chat_edit_view.xml" value="0.1675" />
+        <entry key="..\:/android/app/src/main/res/drawable/cusor_color_shape.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/date_bg_color.xml" value="0.155" />
         <entry key="..\:/android/app/src/main/res/drawable/delete_btn_bg.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/edit_text_bg.xml" value="0.155" />
+        <entry key="..\:/android/app/src/main/res/drawable/exit_btn_bg.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_arrow.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_join.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.155" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_setting.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_ziliao.xml" value="0.226" />
         <entry key="..\:/android/app/src/main/res/drawable/info_view_bg.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/drawable/no_border_shape.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/progress_bg.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/ripen_item_click.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/drawable/ripple_click_2.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/font/font.xml" value="0.2835897435897436" />
         <entry key="..\:/android/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/android/app/src/main/res/layout/chat_edit_view.xml" value="0.2578125" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.264" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_chat.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_detail.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_helper.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_home.xml" value="0.25885416666666666" />
-        <entry key="..\:/android/app/src/main/res/layout/fragment_info.xml" value="0.264" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_info.xml" value="0.4317984361424848" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_message_list.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_motto_sheet.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_photo_picker.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_register.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_setting.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_time_select.xml" value="0.25885416666666666" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_user_name.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_welcome.xml" value="0.24427083333333333" />
         <entry key="..\:/android/app/src/main/res/layout/info_item_layout.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/item_layout.xml" value="0.4" />
+        <entry key="..\:/android/app/src/main/res/layout/message_item_layout.xml" value="0.2578125" />
+        <entry key="..\:/android/app/src/main/res/layout/message_item_layout2.xml" value="0.2578125" />
+        <entry key="..\:/android/app/src/main/res/layout/motto_item_layuot.xml" value="0.2578125" />
+        <entry key="..\:/android/app/src/main/res/layout/user_item_layout.xml" value="0.2578125" />
         <entry key="..\:/android/app/src/main/res/menu/bottom_menu.xml" value="0.2578125" />
         <entry key="..\:/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.155" />
         <entry key="..\:/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.155" />

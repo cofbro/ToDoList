@@ -32,6 +32,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_infoFragment_to_messageListFragment"
+            app:destination="@id/messageListFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -80,5 +83,76 @@
         android:id="@+id/settingFragment"
         android:name="com.example.todolist.fragments.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_settingFragment_to_photoPickerFragment"
+            app:destination="@id/photoPickerFragment"
+            app:enterAnim="@anim/camera_enter"
+            app:popExitAnim="@anim/camera_pop_exit" />
+        <action
+            android:id="@+id/action_settingFragment_to_mottoSheetFragment"
+            app:destination="@id/mottoSheetFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_userNameFragment"
+            app:destination="@id/userNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.todolist.fragments.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoPickerFragment"
+        android:name="com.example.todolist.fragments.PhotoPickerFragment"
+        android:label="fragment_photo_picker"
+        tools:layout="@layout/fragment_photo_picker" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.todolist.fragments.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <dialog
+        android:id="@+id/mottoSheetFragment"
+        android:name="com.example.todolist.fragments.MottoSheetFragment"
+        android:label="fragment_motto_sheet"
+        tools:layout="@layout/fragment_motto_sheet" />
+    <dialog
+        android:id="@+id/userNameFragment"
+        android:name="com.example.todolist.fragments.UserNameFragment"
+        android:label="UserNameFragment" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.todolist.fragments.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="user"
+            app:argType="com.example.todolist.ChatUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageListFragment"
+        android:name="com.example.todolist.fragments.MessageListFragment"
+        android:label="fragment_message_list"
+        tools:layout="@layout/fragment_message_list" >
+        <action
+            android:id="@+id/action_messageListFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.example.todolist.ChatUser" />
+    </fragment>
 </navigation>

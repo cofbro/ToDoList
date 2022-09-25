@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.RegisterFragment">
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="108dp"
+        android:text="注册ToDoList"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        android:text="邮箱:"
+        android:textColor="#767676"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <EditText
+        android:textColor="@color/black"
+        android:gravity="bottom"
+        android:id="@+id/emailTextView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/no_border_shape"
+        android:textColorHint="#767676"
+        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView17" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/emailTextView"
+        app:layout_constraintEnd_toEndOf="@+id/emailTextView"
+        app:layout_constraintStart_toStartOf="@+id/emailTextView" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="用户名:"
+        android:textColor="#767676"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <EditText
+        android:id="@+id/userNameTextView"
+        android:gravity="bottom"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/no_border_shape"
+        android:textColorHint="#767676"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="@+id/emailTextView"
+        app:layout_constraintStart_toStartOf="@+id/emailTextView" />
+
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/userNameTextView"
+        app:layout_constraintEnd_toEndOf="@+id/userNameTextView"
+        app:layout_constraintStart_toStartOf="@+id/userNameTextView" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="4dp"
+        android:text="密码:"
+        android:textColor="#767676"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+
+    <EditText
+        android:id="@+id/psdTextView"
+        android:gravity="bottom"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/no_border_shape"
+        android:textColorHint="#767676"
+        app:layout_constraintBottom_toBottomOf="@+id/textView19"
+        app:layout_constraintEnd_toEndOf="@+id/userNameTextView"
+        app:layout_constraintStart_toStartOf="@+id/userNameTextView" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/psdTextView"
+        app:layout_constraintEnd_toEndOf="@+id/psdTextView"
+        app:layout_constraintStart_toStartOf="@+id/psdTextView" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="注意：点击注册会向您发送一封电子邮件，只有验证成功才能登录，请注意查收。"
+        android:textColor="#B4BA261B"
+        app:layout_constraintEnd_toEndOf="@+id/psdTextView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/psdTextView" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:text="注 册"
+        android:background="@drawable/btn_normal"
+        app:layout_constraintEnd_toEndOf="@+id/textView21"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <ImageView
+        android:id="@+id/returnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

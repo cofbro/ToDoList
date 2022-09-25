@@ -57,7 +57,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
             topToBottom = R.id.titleView
             bottomToBottom = R.id.container
         }
-        binding.root.addView(recyclerView, constraintLayout)
+        binding.container.addView(recyclerView, constraintLayout)
 
         return recyclerView
     }

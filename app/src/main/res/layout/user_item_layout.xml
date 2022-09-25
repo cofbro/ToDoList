@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+
+    <ImageView
+        android:id="@+id/userAvatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/usernameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="3dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/userAvatar"
+        app:layout_constraintTop_toTopOf="@+id/userAvatar" />
+
+    <TextView
+        android:id="@+id/hintTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="快来和我聊天吧!"
+        android:textColor="#CDD6D3D3"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/usernameView"
+        app:layout_constraintTop_toBottomOf="@+id/usernameView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
