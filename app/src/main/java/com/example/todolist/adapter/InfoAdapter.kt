@@ -1,20 +1,14 @@
 package com.example.todolist.adapter
 
-import android.animation.ValueAnimator
+
 import android.annotation.SuppressLint
-import android.graphics.*
-import android.graphics.drawable.BitmapDrawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.LinearInterpolator
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.R
 import com.example.todolist.databinding.InfoItemLayoutBinding
 import kotlinx.coroutines.*
-import java.util.*
 
 class InfoAdapter : RecyclerView.Adapter<InfoAdapter.MyViewHolder>() {
     private var textList = emptyList<String>()
@@ -46,7 +40,7 @@ class InfoAdapter : RecyclerView.Adapter<InfoAdapter.MyViewHolder>() {
                 lifecycleScope.launch(Dispatchers.IO) {
                     delay(200)
                     withContext(Dispatchers.Main) {
-                        it.findNavController().navigate(R.id.action_infoFragment_to_settingFragment)
+                        it.findNavController().navigate(R.id.action_infoFragment_to_aboutFragment)
                     }
                 }
             }

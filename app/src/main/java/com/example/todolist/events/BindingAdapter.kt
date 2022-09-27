@@ -1,6 +1,5 @@
 package com.example.todolist.events
 
-import android.widget.EditText
 import androidx.databinding.BindingAdapter
 import com.example.todolist.utils.hideTheBottomNavigationView
 import com.example.todolist.utils.showTheBottomNavigationView

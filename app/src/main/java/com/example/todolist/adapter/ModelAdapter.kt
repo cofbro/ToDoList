@@ -1,12 +1,9 @@
 package com.example.todolist.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.TodoListView
 import com.example.todolist.databinding.ItemLayoutBinding
 import com.example.todolist.db.Info
 import com.example.todolist.model.HomeModel

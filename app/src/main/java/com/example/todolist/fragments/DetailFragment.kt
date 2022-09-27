@@ -19,9 +19,6 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDetailBinding.inflate(inflater, container, false)
-
-
-
         return binding.root
     }
 

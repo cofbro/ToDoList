@@ -32,6 +32,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_infoFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -81,4 +84,43 @@
         android:name="com.example.todolist.fragments.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.todolist.fragments.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_aboutDetailFragment"
+            app:destination="@id/aboutDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutDetailFragment"
+        android:name="com.example.todolist.fragments.AboutDetailFragment"
+        android:label="fragment_about_detail"
+        tools:layout="@layout/fragment_about_detail" >
+        <action
+            android:id="@+id/action_aboutDetailFragment_to_aboutUserPermissionFragment"
+            app:destination="@id/aboutUserPermissionFragment" />
+        <action
+            android:id="@+id/action_aboutDetailFragment_to_aboutPrivacyPolicyFragment"
+            app:destination="@id/aboutPrivacyPolicyFragment" />
+        <action
+            android:id="@+id/action_aboutDetailFragment_to_aboutStorehouseFragment2"
+            app:destination="@id/aboutStorehouseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutPrivacyPolicyFragment"
+        android:name="com.example.todolist.fragments.AboutPrivacyPolicyFragment"
+        android:label="fragment_about_privacy_policy"
+        tools:layout="@layout/fragment_about_privacy_policy" />
+    <fragment
+        android:id="@+id/aboutUserPermissionFragment"
+        android:name="com.example.todolist.fragments.AboutUserPermissionFragment"
+        android:label="fragment_about_user_permission"
+        tools:layout="@layout/fragment_about_user_permission" />
+    <fragment
+        android:id="@+id/aboutStorehouseFragment"
+        android:name="com.example.todolist.fragments.AboutStorehouseFragment"
+        android:label="fragment_about_storehouse"
+        tools:layout="@layout/fragment_about_storehouse" />
 </navigation>
