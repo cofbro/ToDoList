@@ -5,6 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.databinding.MottoItemLayuotBinding
 
+/**
+ * @author chy
+ * 座右铭的adapter
+ */
 class MottoAdapter : RecyclerView.Adapter<MottoAdapter.MyViewHolder>() {
     private var motto = ""
 

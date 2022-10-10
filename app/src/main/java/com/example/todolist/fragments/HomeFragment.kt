@@ -23,6 +23,10 @@ import com.example.todolist.model.MainViewModel
 
 class HomeFragment : Fragment() {
 
+    /**
+     * @author chy
+     * 主页面；待办事项页面
+     */
     private val homeModel: HomeModel by activityViewModels()
     private val model: MainViewModel by activityViewModels()
     private lateinit var recyclerView: RecyclerView
@@ -88,6 +92,7 @@ class HomeFragment : Fragment() {
                     todoListView.rightNum,
                     todoListView.info.millisecond
                 )
+                //将待办事项的各种数据存入本地数据库
                 homeModel.updateModel(info)
             }
 

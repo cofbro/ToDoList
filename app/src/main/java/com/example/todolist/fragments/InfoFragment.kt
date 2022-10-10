@@ -24,6 +24,10 @@ import com.example.todolist.lc.loginChatServer
 import com.example.todolist.model.MainViewModel
 import com.example.todolist.utils.startRepeatingJob
 
+/**
+ * @author chy
+ * 第三个页面 --> more页面
+ */
 
 class InfoFragment : Fragment() {
 
@@ -56,8 +60,8 @@ class InfoFragment : Fragment() {
         val infoAdapter = InfoAdapter()
         binding.infoRecyclerView.apply {
             adapter = infoAdapter
-            infoAdapter.initAdapter(textList, imageList, lifecycleScope)
             layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, false)
+            infoAdapter.initAdapter(textList, imageList, lifecycleScope)
         }
 
 

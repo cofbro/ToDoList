@@ -13,6 +13,14 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * @author chy
+ * dataStore preferenceDataStore
+ * @param "passwordKey" -> 待办事项
+ *        "isLoginKey" -> 登录状态
+ *        "userNamedKey" -> 用户名
+ *        "userPasswordKey" -> 密码
+ */
 val Context.preferenceDataStore: DataStore<Preferences> by preferencesDataStore("dataStore_recording")
 
 val passwordKey = stringPreferencesKey("todoStr")

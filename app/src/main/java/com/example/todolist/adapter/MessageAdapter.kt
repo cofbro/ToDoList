@@ -15,6 +15,10 @@ import com.example.todolist.fragments.ChatFragmentArgs
 import com.example.todolist.lc.Msg
 import com.example.todolist.model.MainViewModel
 
+/**
+ * @author chy
+ * 消息对话框中的消息adapter
+ */
 class MessageAdapter : RecyclerView.Adapter<MessageAdapter.MyViewHolder>() {
     private var msg: List<Msg> = emptyList()
     private lateinit var model: MainViewModel
@@ -41,6 +45,7 @@ class MessageAdapter : RecyclerView.Adapter<MessageAdapter.MyViewHolder>() {
         private val binding: MessageItemLayoutBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
+        //消息发送方的消息
         @SuppressLint("UseCompatLoadingForDrawables")
         fun bindByGet(text: String, args: ChatFragmentArgs) {
             //隐藏
@@ -56,6 +61,7 @@ class MessageAdapter : RecyclerView.Adapter<MessageAdapter.MyViewHolder>() {
                 .into(binding.getAvatar)
         }
 
+        //消息接受方的消息
         @SuppressLint("UseCompatLoadingForDrawables")
         fun bindBySend(text: String, model: MainViewModel) {
             binding.getTextView.visibility = View.GONE

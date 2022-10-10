@@ -17,7 +17,7 @@ class MyApplication : Application() {
             "6SrcdrMg8YBwLqia3AubooMc",
             "https://dojvkqsx.lc-cn-n1-shared.com"
         )
-        LCIMMessageManager.setConversationEventHandler(CustomConversationEventHandler())
+        LCIMMessageManager.setConversationEventHandler(CustomConversationEventHandler(applicationContext))
         LCIMMessageManager.registerDefaultMessageHandler(CustomMessageHandler(applicationContext))
     }
 }

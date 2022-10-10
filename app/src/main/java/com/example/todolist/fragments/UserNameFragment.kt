@@ -15,6 +15,10 @@ import com.example.todolist.databinding.FragmentUserNameBinding
 import com.example.todolist.model.MainViewModel
 import com.example.todolist.utils.uploadImageToLC
 
+/**
+ * @author chy
+ * 修改头像的页面
+ */
 class UserNameFragment : SuperBottomSheetFragment() {
 
     private val model: MainViewModel by activityViewModels()

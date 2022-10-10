@@ -5,6 +5,10 @@ import cn.leancloud.LCQuery
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
+/**
+ * @author chy
+ * 查询头像的方法
+ */
 class QueryImageUrl {
     fun queryImageFromLC(userName: String, callback: (String) -> Unit) {
         val query = LCQuery<LCFile>("_File")

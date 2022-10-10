@@ -8,10 +8,12 @@ import kotlinx.parcelize.Parcelize
 
 @Entity
 @Parcelize
-data class Matters(
+data class ChatUserInfo(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val number: Int
+    var name: String,
+    var imageUrl: String,
+    var lastMsg: String
 ) : Parcelable
 
 @Entity

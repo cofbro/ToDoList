@@ -96,11 +96,13 @@ class BottomSheetFragment : SuperBottomSheetFragment() {
             }
         }
 
+        //到选择时间的页面去
         binding.timePickerView.setOnClickListener {
             saveData(requireActivity(), binding.editText.text.toString(), lifecycleScope)
             findNavController().navigate(R.id.action_bottomSheetFragment_to_timeSelectFragment)
         }
 
+        //待办事项页的确定按钮
         binding.button.setOnClickListener {
             model.saveTodoStr(binding.editText.text.toString())
             homeModel.insertModel(model.getTodoStr(), model.getChipStr(), model.getTimeStr())

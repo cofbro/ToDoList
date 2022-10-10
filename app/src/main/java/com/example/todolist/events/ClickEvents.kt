@@ -112,9 +112,7 @@ class ClickEvents {
         }
     }
 
-    fun register(view: View) {
-        view.findNavController()
-    }
+
 
     fun turnToRegisterPage(view: View) {
         view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)

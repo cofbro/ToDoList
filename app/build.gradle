@@ -102,4 +102,6 @@ dependencies {
 //
     //即时通讯
     implementation 'cn.leancloud:realtime-android:8.2.5'
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.9'
 }

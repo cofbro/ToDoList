@@ -19,19 +19,21 @@ import kotlinx.coroutines.launch
 
 class HomeModel(application: Application) : AndroidViewModel(application) {
 
+    //选择时间的参数
     var day = ""
     var hour = ""
     var minute = ""
     var month = ""
     var millisecond = 0
     var num = MutableLiveData(0)
+
     private val repository = Repository(application)
     val modelList = MutableLiveData<List<Info>>(emptyList())
     private lateinit var binding: FragmentHomeBinding
     fun setBinding(mBinding: FragmentHomeBinding) {
         binding = mBinding
     }
-
+    //如果没有待办事项，显示另一种风格
     private fun showTheEmptyClipBoard() {
         binding.bottomTextView.visibility = View.VISIBLE
         binding.textView.visibility = View.VISIBLE
@@ -44,6 +46,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
         binding.clipBoard.visibility = View.GONE
     }
 
+    //动态创建recyclerView
     fun setRecyclerView(context: Context): RecyclerView {
 
         val recyclerView = RecyclerView(context).apply {
@@ -61,7 +64,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
 
         return recyclerView
     }
-
+    //将待办事项数据存入本地数据库
     fun insertModel(todoStr: String, color: String, time: String) {
         num.postValue(num.value!! + 1)
         viewModelScope.launch(Dispatchers.IO) {
@@ -69,7 +72,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
             repository.insertModel(model)
         }
     }
-
+    //得到所有待办事项的数据
     fun getAllModel() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getAllModels().collect {
@@ -77,7 +80,7 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
+    //删除一个待办事项
     fun deleteModel(info: Info) {
         num.postValue(num.value!! - 1)
         viewModelScope.launch(Dispatchers.IO) {
@@ -85,14 +88,14 @@ class HomeModel(application: Application) : AndroidViewModel(application) {
             repository.deleteModel(info)
         }
     }
-
+    //更新待办事项
     fun updateModel(info: Info) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.updateModel(info)
         }
     }
 
-
+    //判断是否显示recyclerView
     fun judgeShowRecyclerView() {
         if (modelList.value!!.isNotEmpty()) {
             hideTheEmptyClipBoard()

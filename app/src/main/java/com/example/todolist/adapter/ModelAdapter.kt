@@ -11,6 +11,10 @@ import com.example.todolist.databinding.ItemLayoutBinding
 import com.example.todolist.db.Info
 import com.example.todolist.model.HomeModel
 
+/**
+ * @author chy
+ * 待办任务中的adapter
+ */
 class ModelAdapter : RecyclerView.Adapter<ModelAdapter.MyViewHolder>() {
     private lateinit var homeModel: HomeModel
     private var dataList = emptyList<Info>()

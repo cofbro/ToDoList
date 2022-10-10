@@ -8,6 +8,7 @@ import cn.leancloud.im.v2.*
 import cn.leancloud.im.v2.callback.LCIMClientCallback
 import cn.leancloud.im.v2.callback.LCIMConversationCallback
 import cn.leancloud.im.v2.callback.LCIMConversationCreatedCallback
+import cn.leancloud.im.v2.callback.LCIMMessagesQueryCallback
 import cn.leancloud.im.v2.messages.LCIMTextMessage
 import com.example.todolist.model.ChatModel
 import com.example.todolist.model.MainViewModel
@@ -106,5 +107,14 @@ fun sendMegToServer(text: String, conversation: LCIMConversation?) {
                 Log.d("chy","error:${e.message}")
             }
         }
+    })
+}
+
+fun queryMessageRecords(conversation: LCIMConversation?, callback: (MutableList<LCIMMessage>?) -> Unit) {
+    conversation?.queryMessages(10, object : LCIMMessagesQueryCallback() {
+        override fun done(messages: MutableList<LCIMMessage>?, e: LCIMException?) {
+            callback(messages)
+        }
+
     })
 }

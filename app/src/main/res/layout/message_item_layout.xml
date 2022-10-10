@@ -25,9 +25,10 @@
         android:layout_marginStart="6dp"
         android:background="@drawable/btn_normal"
         android:padding="10dp"
+        android:maxWidth="200dp"
+        android:lineSpacingExtra="9dp"
         android:text="这是一条示例"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/getAvatar"
         app:layout_constraintStart_toEndOf="@+id/getAvatar"
         app:layout_constraintTop_toTopOf="@+id/getAvatar" />
 
@@ -45,14 +46,16 @@
 
     <TextView
         android:id="@+id/sendTextView"
-        android:background="@drawable/btn_normal"
+        android:maxLength="30"
+        android:maxWidth="200dp"
+        android:lineSpacingExtra="9dp"
         android:layout_width="wrap_content"
-        android:textColor="@color/black"
-        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/btn_normal"
+        android:padding="10dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/sendAvater"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/sendAvater"
         app:layout_constraintTop_toTopOf="@+id/sendAvater" />
 </androidx.constraintlayout.widget.ConstraintLayout>

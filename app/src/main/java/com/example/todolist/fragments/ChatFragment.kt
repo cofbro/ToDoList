@@ -48,6 +48,9 @@ class ChatFragment : Fragment() {
 
         //adapter传数据
         messageAdapter.setMainViewModel(model, args)
+
+
+        //将实时收到的消息进行过滤，显示到对应的消息对话框中
         chatModel.receiveMessageMutableList.observe(viewLifecycleOwner) {
             val msgList =
                 chatModel.msgListFilter(it, args.user.username, model.currentUser!!.username)
@@ -64,24 +67,22 @@ class ChatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-//        loginChatServer(requireActivity(),model) {
-//            if (it != null) {
-//                createConversationWithUser(it, model, "ccc") { c ->
-//                    conversation = c
-//                }
-//            }
-//
-//        }
 
 
-
+            //与改用户创建对话
             createConversationWithUser(chatModel.client!!, model, args.user.username) { c ->
                 conversation = c
+                //加载历史消息
+                queryMessageRecords(conversation) {
+                    if (it != null && !chatModel.ifLoadRecords) {
+                        chatModel.saveIntoModel(it, model, conversation!!)
+                    }
+                }
             }
 
 
 
-
+        //发送消息
         binding.button2.setOnClickListener {
             val text = binding.chatEditView.text.toString()
             if (conversation != null) {

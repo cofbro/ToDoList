@@ -14,7 +14,7 @@ import com.example.todolist.utils.dp2px
 import com.example.todolist.utils.hideTheBottomNavigationView
 import com.example.todolist.utils.showTheBottomNavigationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
+//底部导航栏的显示与隐藏
 @BindingAdapter("showOrHide")
 fun BottomNavigationView.showOrHide(post: Boolean) {
     if (post) {
@@ -23,7 +23,7 @@ fun BottomNavigationView.showOrHide(post: Boolean) {
         hideTheBottomNavigationView(this)
     }
 }
-
+//设置手机号后面 x 图片的显示与隐藏
 @BindingAdapter("setImageVisibility")
 fun ImageView.setImageVisibility(phoneNumber: String) {
     Log.d("chy","number:$phoneNumber")
@@ -33,7 +33,7 @@ fun ImageView.setImageVisibility(phoneNumber: String) {
         View.INVISIBLE
     }
 }
-
+//设置输入框的输入格式
 @BindingAdapter("changePasswordShow")
 fun EditText.changePasswordShow(isPassword: Boolean) {
     transformationMethod = if (isPassword) {
@@ -42,12 +42,12 @@ fun EditText.changePasswordShow(isPassword: Boolean) {
         HideReturnsTransformationMethod.getInstance()
     }
 }
-
+//底部确认按钮是否可点
 @BindingAdapter("setEnabled")
 fun Button.setEnabled(phoneNumber: String) {
     isEnabled = phoneNumber.length == 11
 }
-
+//是否显示 checkbox 未勾选的动画
 @BindingAdapter("shouldShowAnimation")
 fun CheckBox.shouldShowAnimation(isShow: Boolean) {
     val offsetX = context.dp2px(3).toFloat()

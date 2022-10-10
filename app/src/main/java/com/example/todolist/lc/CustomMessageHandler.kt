@@ -17,13 +17,13 @@ class CustomMessageHandler(val context: Context) : LCIMMessageHandler() {
         conversation: LCIMConversation?,
         client: LCIMClient?
     ) {
+        //接收消息
         super.onMessage(message, conversation, client)
         if (message is LCIMTextMessage) {
             val model = ChatModel.getInstance()
             val msg = Msg(message.text, Msg.GET, conversation!!.name)
             model.saveReceiveMessage(msg)
             model.receiveMessageMutableList.postValue(model.receiveMessageList)
-            Toast.makeText(context, message.text, Toast.LENGTH_SHORT).show()
             Log.d("chy", "接收成功：${message.text}")
         }
     }

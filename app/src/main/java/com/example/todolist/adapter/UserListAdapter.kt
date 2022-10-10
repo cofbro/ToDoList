@@ -14,6 +14,10 @@ import com.example.todolist.R
 import com.example.todolist.databinding.UserItemLayoutBinding
 import com.example.todolist.fragments.MessageListFragmentDirections
 
+/**
+ * @author chy
+ * 用户列表adapter
+ */
 class UserListAdapter : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
     private lateinit var userInfoList: List<ChatUser>
 
@@ -24,7 +28,7 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(userInfoList[position], position)
+        holder.bind(userInfoList[position])
     }
 
     override fun getItemCount(): Int {
@@ -34,8 +38,8 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.MyViewHolder>() {
     class MyViewHolder(private val binding: UserItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("UseCompatLoadingForDrawables")
-        fun bind(user: ChatUser, position: Int) {
-
+        fun bind(user: ChatUser) {
+            //显示头像以及用户名
             Glide.with(binding.root.context)
                 .load(user.avatarUrl)
                 .placeholder(binding.root.context.getDrawable(R.drawable.photo))

@@ -13,6 +13,7 @@
         <entry key="..\:/android/app/src/main/res/drawable/cusor_color_shape.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/date_bg_color.xml" value="0.155" />
         <entry key="..\:/android/app/src/main/res/drawable/delete_btn_bg.xml" value="0.1755" />
+        <entry key="..\:/android/app/src/main/res/drawable/dialog_bg.xml" value="0.1675" />
         <entry key="..\:/android/app/src/main/res/drawable/edit_text_bg.xml" value="0.155" />
         <entry key="..\:/android/app/src/main/res/drawable/exit_btn_bg.xml" value="0.1755" />
         <entry key="..\:/android/app/src/main/res/drawable/ic_arrow.xml" value="0.1755" />
@@ -28,6 +29,7 @@
         <entry key="..\:/android/app/src/main/res/font/font.xml" value="0.2835897435897436" />
         <entry key="..\:/android/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/android/app/src/main/res/layout/chat_edit_view.xml" value="0.2578125" />
+        <entry key="..\:/android/app/src/main/res/layout/fragment_add_contacts.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.264" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_chat.xml" value="0.25885416666666666" />
         <entry key="..\:/android/app/src/main/res/layout/fragment_detail.xml" value="0.25885416666666666" />

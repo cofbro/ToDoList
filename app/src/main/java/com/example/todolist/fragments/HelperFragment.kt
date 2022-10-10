@@ -11,7 +11,10 @@ import com.example.todolist.databinding.FragmentHelperBinding
 import com.example.todolist.utils.helperAnimator
 
 class HelperFragment : Fragment() {
-
+    /**
+     * @author chy
+     * 第一次进入应用时的介绍页面
+     */
 
     private var num = 1
     private lateinit var binding: FragmentHelperBinding

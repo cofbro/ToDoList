@@ -19,6 +19,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ *
+ * @author chy
+ * 设置页面
+ */
 class SettingFragment : Fragment() {
 
     private val model: MainViewModel by activityViewModels()
